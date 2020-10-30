@@ -11,6 +11,19 @@ public class ISSStudent implements Comparable {
         address = a;
         id = i;
     }
+    
+    public String toString(){
+        return "Name:\t\t" + name + "\nAddress:\t" + address +
+                "\nID:\t\t" + id;
+    }
+    
+    public int getID(){
+        return id;
+    }
+    
+    public String getAdd(){
+        return address;
+    }
     public String getName(){
         return name;
     }

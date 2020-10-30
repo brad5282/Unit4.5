@@ -80,18 +80,33 @@ public static int findMinimum(Object[] a, int first){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         StudentList = new javax.swing.JList<>();
-        sortbtn = new javax.swing.JButton();
+        searchbtn = new javax.swing.JButton();
+        clearbtn = new javax.swing.JButton();
+        searchField = new javax.swing.JTextField();
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jScrollPane1.setViewportView(StudentList);
 
-        sortbtn.setText("Sort By Name");
-        sortbtn.addActionListener(new java.awt.event.ActionListener() {
+        searchbtn.setText("Search");
+        searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortbtnActionPerformed(evt);
+                searchbtnActionPerformed(evt);
+            }
+        });
+
+        clearbtn.setText("Clear");
+        clearbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearbtnActionPerformed(evt);
             }
         });
 
@@ -100,38 +115,49 @@ public static int findMinimum(Object[] a, int first){
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(sortbtn)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(clearbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sortbtn)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchbtn)
+                    .addComponent(clearbtn)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void sortbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortbtnActionPerformed
-        //erase the list
+    private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
+        int id = Integer.parseInt(searchField.getText());
+        ISSStudent temp = new ISSStudent(null,null, id);
+//erase the list
         model.clear();
-        selectionSort(stu);
+        selectionSort(temp);
         //reprint nams to the list
         for (int i = 0; i < 100; i++) {
-            model.add(i,stu[i].getName());
+            model.add(i,stu[i].toString());
             
         }
-    }//GEN-LAST:event_sortbtnActionPerformed
+    }//GEN-LAST:event_searchbtnActionPerformed
+
+    private void clearbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearbtnActionPerformed
+        model.clear();
+    }//GEN-LAST:event_clearbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,7 +196,11 @@ public static int findMinimum(Object[] a, int first){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> StudentList;
+    private javax.swing.JButton clearbtn;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton sortbtn;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JButton searchbtn;
     // End of variables declaration//GEN-END:variables
 }
