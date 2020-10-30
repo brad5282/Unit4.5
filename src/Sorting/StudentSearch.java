@@ -4,25 +4,21 @@ package Sorting;
 import java.io.File;
 import java.util.Scanner;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 
 
 
-public class StudentSort extends javax.swing.JFrame {
+public class StudentSearch extends javax.swing.JFrame {
 
     /**
-     * Creates new form StudentSort
+     * Creates new form StudentSearch
      */
-    ISSStudent stu[] = new ISSStudent[100];
-    DefaultListModel model;
     
-    public StudentSort() {
+    ISSStudent stu[] = new ISSStudent[100];
+    public StudentSearch() {
         initComponents();
-        model = new DefaultListModel();
-        //conects the model to the list
-        //if we add to model we'll see it on the list
-        StudentList.setModel(model);
-        //read data from file and create 100 issstudents
+        
         try{
         Scanner s = new Scanner(new File("src/Sorting/studata.txt"));
             for (int i = 0; i < 100; i++) {
@@ -30,45 +26,28 @@ public class StudentSort extends javax.swing.JFrame {
                 String a = s.nextLine();
                 int id = Integer.parseInt(s.nextLine());
                 stu[i] = new ISSStudent(n,a,id);
-                model. add(i, stu[i].getName());
-                
+                System.out.println(stu[i]);
             }
-        
-        
         }catch(Exception e){
             System.out.println(e);
         }
     }
-    public static void swap(Object[] a, int x, int y){
-   Object temp = a[x];
-   a[x] = a[y];
-   a[y] = temp;
-}
 
-
-////////////////////////////////////////////////////////////////
-
-public static void selectionSort(Object[] a){
-   for (int i = 0; i < a.length - 1; i++){
-      int minIndex = findMinimum(a, i);
-      if (minIndex != i)
-	//if lowest is not already in place
-         swap(a, i, minIndex);
-   } //end for
-}  
-
-//supporting findMinimum method
-
-public static int findMinimum(Object[] a, int first){
-   //first=where to start looking from
-   //assume first is also the smallest for now
-   int minIndex = first; 
-   for (int i = first + 1; i < a.length; i++)
-      if (((Comparable)a[i]).compareTo(a[minIndex]) < 1){
-         minIndex = i;
-}
-
-   return minIndex;
+public static int search (Object[] a, Object searchValue){
+	   int left = 0;
+	   int right = a.length-1;
+	   while (left <= right){
+	      int midpoint = (left + right) / 2;
+	      int result = ((Comparable)a[midpoint]).compareTo(searchValue); 
+	      if (result == 0)
+	         return midpoint;
+	      else if (result < 0)
+	         left = midpoint + 1;
+	      else
+	         right = midpoint-1;
+	   }
+	   return -1;	
+		   
 }
 
     /**
@@ -82,19 +61,17 @@ public static int findMinimum(Object[] a, int first){
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        StudentList = new javax.swing.JList<>();
         searchbtn = new javax.swing.JButton();
         clearbtn = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        display = new javax.swing.JTextArea();
 
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jScrollPane1.setViewportView(StudentList);
 
         searchbtn.setText("Search");
         searchbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +87,10 @@ public static int findMinimum(Object[] a, int first){
             }
         });
 
+        display.setColumns(20);
+        display.setRows(5);
+        jScrollPane2.setViewportView(display);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,7 +98,7 @@ public static int findMinimum(Object[] a, int first){
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
@@ -134,29 +115,31 @@ public static int findMinimum(Object[] a, int first){
                     .addComponent(searchbtn)
                     .addComponent(clearbtn)
                     .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
-        int id = Integer.parseInt(searchField.getText());
-        ISSStudent temp = new ISSStudent(null,null, id);
-//erase the list
-        model.clear();
-        selectionSort(temp);
-        //reprint nams to the list
-        for (int i = 0; i < 100; i++) {
-            model.add(i,stu[i].toString());
-            
+        int id2 = Integer.parseInt(searchField.getText());
+        ISSStudent temp = new ISSStudent(null,null, id2);
+        
+        int result = search(stu,temp);
+        if(result >= 0){
+            display.setText(stu[result].toString());
         }
+        else
+            display.setText("Student not Found");
+        
+
     }//GEN-LAST:event_searchbtnActionPerformed
 
     private void clearbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearbtnActionPerformed
-        model.clear();
+        display.setText("");
+        searchField.setText("");
     }//GEN-LAST:event_clearbtnActionPerformed
 
     /**
@@ -176,30 +159,31 @@ public static int findMinimum(Object[] a, int first){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StudentSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StudentSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StudentSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StudentSort.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentSort().setVisible(true);
+                new StudentSearch().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> StudentList;
     private javax.swing.JButton clearbtn;
+    private javax.swing.JTextArea display;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField searchField;
     private javax.swing.JButton searchbtn;
     // End of variables declaration//GEN-END:variables
