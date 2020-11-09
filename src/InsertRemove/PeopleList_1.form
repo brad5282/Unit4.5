@@ -13,9 +13,6 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/InsertRemove/exit.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
               <Events>
@@ -31,9 +28,6 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuclr">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/InsertRemove/exit.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Clear"/>
               </Properties>
               <Events>
@@ -42,9 +36,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuadd">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/InsertRemove/insert.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
@@ -53,9 +44,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnudel">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/InsertRemove/delete.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Delete"/>
               </Properties>
               <Events>
@@ -71,9 +59,6 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuAll">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/InsertRemove/all.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Show All"/>
               </Properties>
               <Events>
@@ -82,9 +67,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuFem">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/InsertRemove/female.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Female"/>
               </Properties>
               <Events>
@@ -93,9 +75,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuMale">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/InsertRemove/male.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Male"/>
               </Properties>
               <Events>

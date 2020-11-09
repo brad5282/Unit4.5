@@ -117,7 +117,6 @@ public class PeopleList_1 extends javax.swing.JFrame {
 
         mnuExit.setText("File");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InsertRemove/exit.png"))); // NOI18N
         jMenuItem1.setText("Exit");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +129,6 @@ public class PeopleList_1 extends javax.swing.JFrame {
 
         jMenu2.setText("Edit");
 
-        mnuclr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InsertRemove/exit.png"))); // NOI18N
         mnuclr.setText("Clear");
         mnuclr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +137,6 @@ public class PeopleList_1 extends javax.swing.JFrame {
         });
         jMenu2.add(mnuclr);
 
-        mnuadd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InsertRemove/insert.png"))); // NOI18N
         mnuadd.setText("Add");
         mnuadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +145,6 @@ public class PeopleList_1 extends javax.swing.JFrame {
         });
         jMenu2.add(mnuadd);
 
-        mnudel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InsertRemove/delete.png"))); // NOI18N
         mnudel.setText("Delete");
         mnudel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +157,6 @@ public class PeopleList_1 extends javax.swing.JFrame {
 
         jMenu3.setText("Filter");
 
-        mnuAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InsertRemove/all.png"))); // NOI18N
         mnuAll.setText("Show All");
         mnuAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +165,6 @@ public class PeopleList_1 extends javax.swing.JFrame {
         });
         jMenu3.add(mnuAll);
 
-        mnuFem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InsertRemove/female.png"))); // NOI18N
         mnuFem.setText("Female");
         mnuFem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +173,6 @@ public class PeopleList_1 extends javax.swing.JFrame {
         });
         jMenu3.add(mnuFem);
 
-        mnuMale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InsertRemove/male.png"))); // NOI18N
         mnuMale.setText("Male");
         mnuMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
